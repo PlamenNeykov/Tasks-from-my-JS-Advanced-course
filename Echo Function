@@ -1,0 +1,4 @@
+function printLengthAndInput(textInput) {
+console.log(String(textInput).length)
+console.log(textInput);
+}
