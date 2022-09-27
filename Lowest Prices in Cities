@@ -1,0 +1,45 @@
+function productPriceInfo(townProductPriceInputArr) {
+
+    let dataBase = {};
+
+    for (let i = 0; i < townProductPriceInputArr.length; i++) {
+        let textInfo = townProductPriceInputArr[i].split(' | ');
+
+        let townName = textInfo[0];
+        let productName = textInfo[1];
+        let currentPrise = Number(textInfo[2]);
+
+        if (!dataBase[productName]) {
+            dataBase[productName] = {townName,currentPrise};
+        } 
+        
+        else {
+            if(dataBase[productName].currentPrise> currentPrise) {
+                dataBase[productName] = {townName,currentPrise};
+            }
+        }
+        
+    }
+
+    const values = Object.entries(dataBase);
+
+    for (let i = 0; i < values.length; i++) {
+        let nameOfProduct = values[i][0];
+        let obj = values[i][1];
+     
+
+        console.log(`${values[i][0]} -> ${(obj.currentPrise)} (${(obj.townName)})`);
+    }
+
+}
+
+// this is sample input
+productPriceInfo(
+        ['Sample Town | Sample Product | 1000',
+        'Sample Town | Orange | 2',
+        'Sample Town | Peach | 1',
+        'Sofia | Orange | 3',
+        'Sofia | Peach | 2',
+        'New York | Sample Product | 1000.1',
+        'New York | Burger | 10']
+);
