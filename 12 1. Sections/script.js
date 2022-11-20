@@ -14,6 +14,6 @@ function create(words) {
 
       function start(e) {
          e.currentTarget.children[0].style.display = '';
-      } 
+      }
    }
 }
